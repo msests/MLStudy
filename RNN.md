@@ -1,8 +1,10 @@
-# 深度学习中的RNN笔记
-
 ## 原理
 
-循环神经网络（Recurrent Neural Network, RNN）是一种用于处理序列数据的神经网络。它与传统的前馈神经网络的主要区别在于，RNN考虑了时间维度上的依赖性，即当前输出不仅取决于当前输入，还取决于之前时刻的输入。RNN通过在网络中引入循环结构来实现这一点，每个神经元都会接收上一时刻自身的输出作为当前时刻的一部分输入。
+循环神经网络（Recurrent Neural Network, RNN）是一种用于处理序列数据的神经网络。它与传统的前馈神经网络的主要区别在于，RNN考虑了时间维度上的依赖性，即当前输出不仅取决于当前输入，还取决于之前时刻的输入。
+$$P(X_t|x_{t-1},...,x_1)  $$
+RNN 的目标是最大化联合概率： $p(y_1, y_2, \dots, y_T | x_1, x_2, \dots, x_T) = \prod_{t=1}^{T} p(y_t | x_1, x_2, \dots, x_t)$ 。这通常通过最小化负对数似然损失函数进行优化： $\mathcal{L} = -\sum_{t=1}^{T} \log p(y_t | x_1, x_2, \dots, x_t)$。
+
+RNN通过在网络中引入循环结构来实现这一点，每个神经元都会接收上一时刻自身的输出作为当前时刻的一部分输入。
 
 数学表达式如下：
 - $h_t = \sigma(W_{hx}x_t + W_{hh}h_{t-1} + b_h)$
@@ -10,11 +12,6 @@
 
 其中，$h_t$是隐藏状态，$x_t$是输入，$y_t$是输出，$W_{hx}$, $W_{hh}$, $W_{yh}$分别是输入到隐藏、隐藏到隐藏和隐藏到输出的权重矩阵，$b_h$, $b_y$是偏置项，$\sigma$是激活函数。
 ![](./images/RNN.drawio.svg)
-
-循环神经网络的展开
-
-![](./images/RNNRoll.drawio.svg)
-
 ## 损失函数
 
 在训练过程中，通常使用交叉熵损失函数来衡量模型预测值与真实标签之间的差异。对于一个序列长度为T的时间序列问题，总的损失函数L可以表示为所有时间点损失的总和：
@@ -26,6 +23,29 @@ $L = -\sum_{t=1}^{T} \sum_{i} y_i^t \log(\hat{y}_i^t)$
 ## 梯度更新
 
 RNN使用反向传播算法的一种变体——随时间反向传播（Backpropagation Through Time, BPTT）来更新权重。BPTT将网络展开在时间维度上，然后应用标准的反向传播算法计算梯度，并使用优化算法如SGD或Adam更新参数。
+
+### BPTT
+
+BPTT是最基础的RNN梯度更新算法，基本思想是将损失沿着RNN按时间展开的计算图反向传播并更新梯度。假如每次计算包含三个时间步，将循环神经网络展开为计算图。
+
+![](./images/RNNRoll.drawio.svg)
+
+损失函数求导
+$$
+\begin{aligned} L &= \sum^{T}_{t=1}l_t(y_t,\hat{y_t}) \\
+				  &= l_1 + l_2 + l_3
+\end{aligned}$$
+$$
+\begin{aligned} \frac{dL}{dy_3} &= \frac{dL}{l_1} \cdot \frac{dl_1}{dy_3}
+\end{aligned}$$
+$$
+\begin{aligned} \frac{dL}{dh_3} &= \frac{dL}{dy_3} \cdot \frac{dy_3}{dh_3}\\
+&=\frac{dL}{dy_3} \cdot {W_{yh}}^T
+\end{aligned}$$
+有两条路径可以从L到达h2
+$$\begin{aligned} \frac{dL}{dh_2} &= \frac{dL}{dy_2} \cdot \frac{dy_2}{dh_2}\\
+&=\frac{dL}{dy_2} \cdot 
+\end{aligned}$$
 
 ## 优缺点
 
