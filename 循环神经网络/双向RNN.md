@@ -1,0 +1,55 @@
+## 原理细节
+
+* **结构**：双向RNN包含两个独立的RNN层：
+  - **前向RNN**：按时间顺序处理序列（$t=1 \rightarrow T$），计算隐藏状态：
+$$h_t^{(f)} = f(W^{(f)} x_t + U^{(f)} h_{t-1}^{(f)} + b^{(f)})$$
+  - **后向RNN**：按逆序处理序列（$t=T \rightarrow 1$），计算隐藏状态
+$$h_t^{(b)} = f(W^{(b)} x_t + U^{(b)} h_{t+1}^{(b)} + b^{(b)})$$
+  - 合并输出：$H_t = [h_t^{(f)}; h_t^{(b)}]$（常用拼接操作，也可选择相加或平均）。
+
+* **时间步依赖**：每个时间步$t$的输出依赖**全部输入序列**的上下文信息。
+
+## 梯度计算与反向传播
+
+* **梯度分解**：总梯度=前向RNN梯度 + 后向RNN梯度。
+
+* **反向传播过程**：
+  1. 前向RNN使用BPTT从$t=T$到$t=1$计算梯度$\frac{\partial L}{\partial W^{(f)}}$
+  2. 后向RNN使用BPTT从$t=1$到$t=T$计算梯度$\frac{\partial L}{\partial W^{(b)}}$
+  3. 参数更新：$\Delta W = \Delta W^{(f)} + \Delta W^{(b)}$
+
+* **梯度消失/爆炸**：与标准RNN面临相同问题，常通过LSTM/GRU单元缓解。
+
+## 应用场景
+
+* **自然语言处理**：
+  - 命名实体识别（如判断"Apple"指公司还是水果）
+  - 机器翻译（捕捉双向语义依赖）
+
+* **语音识别**：利用未来帧信息提升音素分类精度。
+
+* **时间序列预测**：股票价格分析（结合历史与未来趋势）。
+
+* **生物信息学**：蛋白质结构预测。
+
+## 优点
+
+* 上下文建模：同时捕获过去和未来信息。
+
+* 灵活扩展：可与CNN/Attention等模块结合（如BiLSTM+CRF）。
+
+* 性能提升：在多数序列任务中优于单向RNN。
+
+## 缺点
+
+* **计算代价**：参数数量翻倍，训练速度降低约50%。
+
+* **实时性限制**：必须获取完整输入序列后才能计算。
+
+* **长距离依赖**：仍受限于RNN的固有缺陷（需配合注意力机制改进）。
+
+## 参考资料
+1. Schuster, M., & Paliwal, K. K. (1997). *Bidirectional recurrent neural networks*. IEEE Transactions on Signal Processing.
+2. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning* Chapter 10. MIT Press.
+3. Graves, A. (2012). *Supervised Sequence Labelling with Recurrent Neural Networks*. Springer.
+4. TensorFlow官方文档：`Bidirectional wrapper for RNNs`

@@ -1,10 +1,9 @@
-# ResNet 笔记
-
 ## 原理细节
 
 1. **残差学习**：ResNet 的核心思想是学习残差函数 $F(x) = H(x) + x$，其中 $H(x)$ 是目标映射，$x$ 是输入。通过跳跃连接（Shortcut Connection）实现恒等映射。
 
 2. **网络结构**：
+
    - 基础块包含卷积层、批量归一化（BatchNorm）和激活函数（ReLU）。
    - 残差块分为两种：
      - **标准残差块**（BasicBlock）：包含两个 $3 \times 3$ 卷积层，用于浅层网络（如 ResNet-18/34）。
@@ -14,11 +13,14 @@
 
 ## 梯度计算与反向传播
 
-1. **梯度公式**：假设残差块输出为 $H(x) = F(x, \{W_i\}) + x$，反向传播时梯度为：
-   $$
-   \frac{\partial \mathcal{L}}{\partial x} = \frac{\partial \mathcal{L}}{\partial H} \cdot \left( \frac{\partial F}{\partial x} + 1 \right)
-   $$
-2. **优势**：
+**梯度公式**：假设残差块输出为 $H(x) = F(x, \{W_i\}) + x$，反向传播时梯度为：
+$$\begin{aligned} \frac{\partial \mathcal{L}}{\partial x} &= \frac{\partial \mathcal{L}}{\partial H} \cdot \frac{\partial H}{\partial x} \\
+&= \frac{\partial \mathcal{L}}{\partial H} \cdot \left( \frac{\partial F}{\partial x} + 1 \right)
+\end{aligned}$$
+   其中$\frac{\partial \mathcal{L}}{\partial H}$是输入梯度。
+
+**优势**：
+
    - 跳跃连接的导数项 $1$ 确保梯度直接回传，缓解梯度消失。
    - 即使中间层梯度 $\frac{\partial F}{\partial x}$ 接近零，总梯度仍可通过 $1$ 有效传播。
 
