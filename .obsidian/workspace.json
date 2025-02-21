@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b001bfd5a5aa8baa",
+        "id": "ecff40af4dc25f15",
         "type": "tabs",
         "children": [
           {
-            "id": "4b340ef07b7c855e",
+            "id": "73acceef37f54de9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "循环神经网络/编码器-解码器.md",
+                "file": "卷积神经网络/ResNet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "编码器-解码器"
+              "title": "ResNet"
             }
           }
         ]
@@ -159,11 +159,29 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4b340ef07b7c855e",
+  "active": "73acceef37f54de9",
   "lastOpenFiles": [
-    "images/DecEncBPTTSingleLayer.drawio.svg",
+    "卷积神经网络/CNN.md",
+    "卷积神经网络/ResNet.md",
+    "images/CNN.drawio.svg",
+    "归一化",
+    "梯度下降优化/Momentum.md",
+    "自动梯度计算",
+    "数学基础/未命名.md",
+    "数学基础/线性代数.md",
+    "数学基础/微积分.md",
+    "数学基础",
+    "未命名.md",
+    "注意力机制",
+    "梯度下降优化/AdamW.md",
+    "梯度下降优化/Adam.md",
+    "梯度下降优化/Adagrad.md",
+    "激活函数/Maxout.md",
+    "卷积神经网络/现代CNN.md",
     "循环神经网络/RNN.md",
     "循环神经网络/编码器-解码器.md",
+    "卷积神经网络",
+    "images/DecEncBPTTSingleLayer.drawio.svg",
     "images/DecEncBPTT.drawio.svg",
     "images/DecEnc.drawio.svg",
     "循环神经网络/GRU.md",
@@ -176,7 +194,6 @@
     "images/RNNRoll.drawio.svg",
     "激活函数/Sigmod.md",
     "激活函数/ReLU.md",
-    "激活函数/Maxout.md",
     "激活函数/Leaky ReLU.md",
     "损失函数/均方误差损失函数（MSE Loss）.md",
     "感知机.md",
@@ -186,22 +203,8 @@
     "images/RNN.drawio.svg",
     "梯度下降优化/随机梯度下降.md",
     "梯度下降优化/RMSProp.md",
-    "梯度下降优化/Momentum.md",
     "梯度下降优化",
-    "梯度下降优化/Adam.md",
-    "梯度下降优化/Adagrad.md",
-    "梯度下降优化/AdamW.md",
     "images/ReLUBackPropagation.drawio.svg",
-    "images/LeakyReLU.png",
-    "scripts/LeakyReLUDiagram.py",
-    "images/ReLUDiagram.png",
-    "scripts/ReLUDiagram.py",
-    "scripts/SigmodDiagram.py",
-    "SigmodDiagram.py",
-    "scripts",
-    "批量梯度下降（Batch Gradient Descent, BGD）.md",
-    "欢迎.md",
-    "随机梯度下降（SGD）.md",
-    "创建链接.md"
+    "批量梯度下降（Batch Gradient Descent, BGD）.md"
   ]
 }
