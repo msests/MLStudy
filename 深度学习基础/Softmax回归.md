@@ -76,9 +76,3 @@ $$
 3. 对特征间的复杂非线性关系建模能力有限
 
 4. 类别数量极大时计算成本显著增加
-
-## 参考资料
-5. 《Deep Learning》Ian Goodfellow et al., Chapter 3.12
-6. 《Pattern Recognition and Machine Learning》Christopher Bishop, Chapter 4.3
-7. 《机器学习》周志华, 第3章
-8. [CS229 Notes (Stanford)](http://cs229.stanford.edu/notes2020fall/notes2020fall/cs229-notes1.pdf)

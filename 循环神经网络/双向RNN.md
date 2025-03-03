@@ -1,6 +1,7 @@
 ## 原理细节
 
 * **结构**：双向RNN包含两个独立的RNN层：
+
   - **前向RNN**：按时间顺序处理序列（$t=1 \rightarrow T$），计算隐藏状态：
 $$h_t^{(f)} = f(W^{(f)} x_t + U^{(f)} h_{t-1}^{(f)} + b^{(f)})$$
   - **后向RNN**：按逆序处理序列（$t=T \rightarrow 1$），计算隐藏状态
@@ -47,9 +48,3 @@ $$h_t^{(b)} = f(W^{(b)} x_t + U^{(b)} h_{t+1}^{(b)} + b^{(b)})$$
 * **实时性限制**：必须获取完整输入序列后才能计算。
 
 * **长距离依赖**：仍受限于RNN的固有缺陷（需配合注意力机制改进）。
-
-## 参考资料
-1. Schuster, M., & Paliwal, K. K. (1997). *Bidirectional recurrent neural networks*. IEEE Transactions on Signal Processing.
-2. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning* Chapter 10. MIT Press.
-3. Graves, A. (2012). *Supervised Sequence Labelling with Recurrent Neural Networks*. Springer.
-4. TensorFlow官方文档：`Bidirectional wrapper for RNNs`

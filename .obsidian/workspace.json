@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "网络优化/参数初始化/Xavier.md",
+                "file": "自然语言处理/N-gram.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Xavier"
-            }
-          },
-          {
-            "id": "55f8821b00a9bd59",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "网络优化/梯度下降优化/随机梯度下降.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "随机梯度下降"
+              "title": "N-gram"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -109,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "自然语言处理/N-gram.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "N-gram 的反向链接列表"
             }
           },
           {
@@ -174,26 +160,41 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "55f8821b00a9bd59",
+  "active": "fcb322a35812cd2d",
   "lastOpenFiles": [
+    "深度学习基础/前馈神经网络.md",
+    "自然语言处理/N-gram.md",
+    "卷积神经网络/CNN.md",
+    "卷积神经网络/NiN.md",
+    "卷积神经网络/VGGNet.md",
+    "卷积神经网络/现代CNN.md",
+    "循环神经网络/双向RNN.md",
+    "计算机视觉",
+    "自然语言处理",
+    "深度学习基础/Softmax回归.md",
+    "循环神经网络/LSTM.md",
+    "循环神经网络/GRU.md",
+    "卷积神经网络/ResNet.md",
+    "images/ResNetBackPropagation.drawio.svg",
+    "images/NiNNet.drawio.svg",
+    "网络优化/参数初始化/He初始化.md",
+    "数学基础/微积分.md",
+    "网络优化/归一化/Batch Normalization.md",
+    "网络优化/归一化/Layer Normalization.md",
+    "images/BN",
+    "未命名.canvas",
+    "网络优化/参数初始化/随机初始化.md",
+    "网络优化/正则化/权重衰减.md",
+    "网络优化/梯度下降优化/随机梯度下降.md",
     "网络优化/梯度下降优化/批量梯度下降.md",
     "网络优化/梯度下降优化/小批量梯度下降.md",
     "网络优化/归一化/Local Response Nomalization.md",
-    "网络优化/归一化/Layer Normalization.md",
-    "网络优化/归一化/Batch Normalization.md",
-    "网络优化/正则化/权重衰减.md",
     "网络优化/学习率调整/AdamW.md",
     "网络优化/学习率调整/Adam.md",
     "网络优化/学习率调整/RMSProp.md",
-    "网络优化/梯度下降优化/随机梯度下降.md",
     "网络优化/参数初始化/Xavier初始化.md",
-    "网络优化/参数初始化/He初始化.md",
     "网络优化/正则化/Dropout.md",
     "images/Dropout.drawio.svg",
-    "循环神经网络/RNN.md",
-    "循环神经网络/LSTM.md",
-    "网络优化/学习率调整/Adagrad.md",
-    "网络优化/学习率调整/Momentum.md",
     "images/MomentumOvershoot.png",
     "images/MomentumDiagram.png",
     "scripts/MomentumDiagram.py",
@@ -206,21 +207,7 @@
     "images/BNInternalCovariateShift.drawio.svg",
     "images/BNInternal",
     "images/BNConcept.drawio.svg",
-    "数学基础/微积分.md",
-    "数学基础/未命名.md",
-    "深度学习基础/Softmax回归.md",
-    "深度学习基础/前馈神经网络.md",
-    "深度学习基础/感知机.md",
-    "卷积神经网络/CNN.md",
     "网络优化/超参数优化",
-    "网络优化/参数初始化",
-    "循环神经网络/双向RNN.md",
-    "循环神经网络/未命名.md",
-    "深度学习基础/损失函数/交叉熵损失函数（Cross-Entropy Loss）.md",
-    "网络优化/学习率调整",
-    "网络优化/正则化",
-    "images/ResNet.drawio.svg",
-    "images/CNN.drawio.svg",
-    "images/DecEncBPTTSingleLayer.drawio.svg"
+    "images/ResNet.drawio.svg"
   ]
 }
