@@ -9,7 +9,7 @@ $$similarity(w_i, w_j) \approx \vec{v}_{w_i} \cdot \vec{v}_{w_j}$$
 
 - 通过上下文预测中心词
 
-![](../images/CBOW.drawio.svg)
+![](CBOW.drawio.svg)
 
 - 目标函数：最大化对数似然
 $$\mathcal{L} = \sum_{t=1}^T \log p(w_t | w_{t-k}, ..., w_{t+k})$$
@@ -56,9 +56,10 @@ $$
 
 > 在实际实现中，输出矩阵就是Softmax的权重矩阵。
 
-![](../images/CBOWWordVec.drawio.svg)
+![](CBOWWordVec.drawio.svg)
 
 #### 损失函数
+
 CBOW 使用**负对数似然损失函数**。对每个上下文窗口和对应的中心词 $w_t$，损失函数定义为：  
 $$
 \mathcal{L} = -\frac{1}{T} \sum_{t=1}^T \log P(w_t | \text{context})
@@ -73,7 +74,7 @@ $$
 
 - 通过中心词预测上下文
 
-![](../images/SkipGram.drawio.svg)
+![](SkipGram.drawio.svg)
 
 - 更擅长处理低频词
 
@@ -150,23 +151,17 @@ $$\log \sigma(\vec{v}_o^T \vec{h}) + \sum_{k=1}^K \mathbb{E}_{w_k \sim P_n}[\log
 ## 参数设置
 
 - 向量维度：通常100-500维
-
 - 窗口大小：5-10
-
 - 负样本数：5-20
 
 ## 优缺点
 
 **优点**：
-
 - 高效训练。
-
 - 捕获语义规律。
 
 **局限**：
-
 - 无法处理一词多义.
-
 - 上下文窗口固定。
 
 > 通过分布式表示突破传统one-hot编码的维度灾难，为NLP带来里程碑式进展。
