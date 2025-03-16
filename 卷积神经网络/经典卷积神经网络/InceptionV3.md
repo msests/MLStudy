@@ -25,8 +25,8 @@ InceptionV3 由 Google 团队在 2015 年提出（论文 *Rethinking the Incepti
 
 ### 优化策略
 
-- 使用 RMSProp 优化器
-- 引入 Batch Normalization（加速收敛）
+- 使用 RMSProp 优化器。
+- 引入 Batch Normalization（加速收敛）。
 
 ## 网络架构
 
@@ -46,7 +46,8 @@ InceptionV3 由 Google 团队在 2015 年提出（论文 *Rethinking the Incepti
 ## 总结
 
 InceptionV3 的核心贡献在于：
-1. 通过卷积分解和非对称卷积降低计算复杂度
-2. 设计高效的空间降维模块，平衡信息保留与计算效率
-3. 引入标签平滑等正则化方法提升泛化能力
+1. 通过卷积分解和非对称卷积降低计算复杂度。
+2. 设计高效的空间降维模块，平衡信息保留与计算效率。
+3. 引入标签平滑等正则化方法提升泛化能力。
+
 其模块化设计思想对后续模型（如 Xception、MobileNet）产生了深远影响。

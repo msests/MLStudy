@@ -20,7 +20,7 @@ $$
     - 2层Highway网络，增强梯度流动
   - ​**线性投影**  
     - 将输出投影到$d=512$维空间
-- ​**输出**：单词的字符级表示 $\mathbf{x}_k \in \mathbb{R}^{512}$
+- ​**输出**：单词的字符级表示 $\mathbf{x}_k \in \mathbb{R}^{512}$。
 
 ## 2. 双向语言模型（Bidirectional Language Model）
 
@@ -33,7 +33,7 @@ $$
 	- 投影输出到$512$维（减少参数）
 
 - ​**目标函数**：最大化前向对数似然  
-  $$\sum_{k=1}^n \log p(t_k | t_1, ..., t_{k-1})$$
+$$\sum_{k=1}^n \log p(t_k | t_1, ..., t_{k-1})$$
 
 ### 后向LSTM
 
@@ -47,7 +47,7 @@ $$
 ### 双向联合训练
 
 - ​**总损失函数**：  
-  $$\mathcal{L} = -\sum_{k=1}^n \left( \log p(t_k | t_1, ..., t_{k-1}) + \log p(t_k | t_{k+1}, ..., t_n) \right)$$
+$$\mathcal{L} = -\sum_{k=1}^n \left( \log p(t_k | t_1, ..., t_{k-1}) + \log p(t_k | t_{k+1}, ..., t_n) \right)$$
 
 ## 3. 多层表示组合
 
@@ -62,31 +62,3 @@ ELMo 融合各层隐藏状态生成最终词表示：
   $$\mathbf{ELMo}_k = \gamma \left( s_0 \cdot \mathbf{h}_{k,0} + s_1 \cdot \mathbf{h}_{k,1}^{forward} + s_1 \cdot \mathbf{h}_{k,1}^{backward} + s_2 \cdot \mathbf{h}_{k,2}^{forward} + s_2 \cdot \mathbf{h}_{k,2}^{backward} \right)$$
   - $s_j$: Softmax归一化的任务特定权重  
   - $\gamma$: 预训练后固定或微调
-
----
-
-## 结构示意图（伪代码）
-```plaintext
-Input: [Characters]
-       |
-       v
-Character CNN (2048 filters) → Highway → Projection(512D)
-       |
-       v
-Forward LSTM Layer 1 (4096 units) → Projection(512D)
-       |
-       v
-Forward LSTM Layer 2 (4096 units) → Projection(512D)
-       |
-       v
-Backward LSTM Layer 1 (4096 units) → Projection(512D)
-       |
-       v
-Backward LSTM Layer 2 (4096 units) → Projection(512D)
-       |
-       v
-Weighted Sum (s0, s1, s2) × [h0, h1_fw, h1_bw, h2_fw, h2_bw]
-       |
-       v
-Output: ELMo_k (Contextualized Embedding)
-```

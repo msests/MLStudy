@@ -5,7 +5,7 @@ $$similarity(w_i, w_j) \approx \vec{v}_{w_i} \cdot \vec{v}_{w_j}$$
 
 ## 模型架构
 
-### 1. CBOW (Continuous Bag-of-Words)
+### CBOW (Continuous Bag-of-Words)
 
 - 通过上下文预测中心词
 
@@ -18,9 +18,9 @@ $$\mathcal{L} = \sum_{t=1}^T \log p(w_t | w_{t-k}, ..., w_{t+k})$$
 
 在 CBOW 模型中，​**每个词**对应两种向量表示：
 
-- ​**上下文词向量（Context Word Vector）​**：当词作为上下文词时，其对应的向量。记为 $\mathbf{v}_w$，其中 $w$ 表示词的索引。
+- ​**上下文词向量（Context Word Vector）​**：当词作为上下文词时，其对应的向量。记为 $\mathbf{v}_w$，其中 $w$ 表示词的索引。上下文词向量也是CBOW模型中词的嵌入向量。
 
-- ​**中心词向量（Center Word Vector）​**：当词作为中心词（目标词）时，其对应的向量。记为 $\mathbf{u}_c$，其中 $c$ 表示中心词的索引。
+- ​**中心词向量（Center Word Vector）​**：当词作为中心词（目标词）时，其对应的向量。记为 $\mathbf{u}_c$，其中 $c$ 表示中心词的索引。中心词向量不用做词嵌入，只是用于辅助概率计算。
 
 #### 输入矩阵与输出矩阵
 
@@ -68,7 +68,7 @@ $$
 - $T$ 是训练文本的总词数。
 - 外层求和表示对所有中心词求平均。
 
-### 2. Skip-gram
+### Skip-gram
 
 #### 简介
 
@@ -85,15 +85,15 @@ $$\mathcal{L} = \sum_{t=1}^T \sum_{-k \leq j \leq k, j \neq 0} \log p(w_{t+j} | 
 
 在 SkipGram 模型中，​**每个词**对应两种向量表示：
 
-- ​**中心词向量（Center Word Vector）​**：当词作为中心词时，其对应的向量。记为 $\mathbf{v}_w$，其中 $w$ 表示词的索引。
+- ​**中心词向量（Center Word Vector）​**：当词作为中心词时，其对应的向量。记为 $\mathbf{v}_w$，其中 $w$ 表示词的索引。中心词向量也是SkipGram模型中词的嵌入向量。
 
-- ​**上下文词向量（Context Word Vector）​**：当词作为上下文词时，其对应的向量。记为 $\mathbf{u}_c$，其中 $c$ 表示上下文词的索引。
+- ​**上下文词向量（Context Word Vector）​**：当词作为上下文词时，其对应的向量。记为 $\mathbf{u}_c$，其中 $c$ 表示上下文词的索引。上下文词向量不用做词嵌入，只是用于辅助概率计算。
 
 #### 输入矩阵与输出矩阵
 
 SkipGram 模型通过两个矩阵定义词向量：
 
-- ​**输入矩阵（Input Matrix）​**：记为 $W \in \mathbb{R}^{V \times d}$，其中 $V$ 是词汇表大小，$d$ 是向量维度。矩阵的**每一行**对应一个词的中心词向量。例如，词 $w$ 的中心词向量为 $\mathbf{v}_w = W[w,:] \in \mathbb{R}^d$。中心词向量就是对应单词的词嵌入。
+- ​**输入矩阵（Input Matrix）​**：记为 $W \in \mathbb{R}^{V \times d}$，其中 $V$ 是词汇表大小，$d$ 是向量维度。矩阵的**每一行**对应一个词的中心词向量。例如，词 $w$ 的中心词向量为 $\mathbf{v}_w = W[w,:] \in \mathbb{R}^d$。
 
 - ​**输出矩阵（Output Matrix）​**：记为 $W' \in \mathbb{R}^{d \times V}$，矩阵的**每一列**对应一个词的上下文词向量。例如，词 $c$ 的上下文词向量为 $\mathbf{u}_c = W'[:,c] \in \mathbb{R}^d$。
 

@@ -56,9 +56,3 @@
 3. 训练时间较长，需大量数据防止过拟合  
 
 4. 超参数（如隐藏层大小）敏感  
-
-## 参考资料
-5. Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. *Neural Computation*
-6. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning* (Chapter 10)
-7. Graves, A. (2013). Generating Sequences With Recurrent Neural Networks. *arXiv*
-8. [Colah's Blog - Understanding LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
