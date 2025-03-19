@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-数学基础/1.1-微积分/1.1.2-偏导数和偏微分.md",
+                "file": "循环神经网络/GRU.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.1.2-偏导数和偏微分"
+              "title": "GRU"
             }
           },
           {
@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "未命名.md",
+                "file": "2-深度学习基础/2.3-激活函数/2.3.4-ReLU.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "2.3.4-ReLU"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -174,7 +175,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "57e1a23ee3a0c69b",
+  "active": "cf50722252199f6a",
   "lastOpenFiles": [
     "2-深度学习基础/2.3-激活函数/2.3.6-GELU.md",
     "2-深度学习基础/2.3-激活函数/2.3.5-Leaky ReLU.md",
@@ -182,46 +183,45 @@
     "2-深度学习基础/2.3-激活函数/2.3.3-Tanh.md",
     "2-深度学习基础/2.3-激活函数/2.3.2-Maxout.md",
     "2-深度学习基础/2.3-激活函数/2.3.1-Sigmod.md",
+    "2-深度学习基础/2.3-激活函数/images/GeluDiagram.png",
+    "2-深度学习基础/2.3-激活函数/images/TanhDiagram.png",
     "2-深度学习基础/2.2-损失函数/2.2.3-二元交叉熵损失.md",
-    "2-深度学习基础/2.2-损失函数/2.2.2-交叉熵损失函数.md",
+    "2-深度学习基础/2.3-激活函数/images",
     "2-深度学习基础/2.2-损失函数/2.2.1-均方误差损失函数.md",
+    "2-深度学习基础/2.2-损失函数/images/CrossEntropyLoss.jpeg",
+    "2-深度学习基础/2.2-损失函数/2.2.2-交叉熵损失函数.md",
+    "2-深度学习基础/2.2-损失函数/images",
+    "1-数学基础/1.1-微积分/1.1.3-方向导数和梯度.md",
+    "1-数学基础/1.1-微积分/1.1.2-偏导数和偏微分.md",
+    "1-数学基础/1.1-微积分/1.1.1-导数与微分.md",
+    "1-数学基础/1.1-微积分/images/Derivative.png",
+    "images/1.1",
+    "1-数学基础/1.1-微积分/images",
+    "循环神经网络/RNN.md",
+    "循环神经网络/编码器-解码器.md",
+    "循环神经网络/双向RNN.md",
+    "循环神经网络/Seq2Seq.md",
+    "循环神经网络/LSTM.md",
+    "循环神经网络/GRU.md",
+    "未命名.md",
     "2-深度学习基础/2.4-多层感知机/2.4.2-前馈神经网络.md",
     "2-深度学习基础/2.4-多层感知机/2.4.1-感知机.md",
     "2-深度学习基础/2.1-分类与回归/2.1.8-支持向量机.md",
     "2-深度学习基础/2.1-分类与回归/2.1.7-随机森林回归.md",
     "2-深度学习基础/2.1-分类与回归/2.1.6-决策树回归.md",
     "2-深度学习基础/2.1-分类与回归/2.1.4-Softmax回归.md",
-    "2-深度学习基础/2.1-分类与回归/2.1.5-多项式回归.md",
-    "2-深度学习基础/2.1-分类与回归/2.1.3-K近邻回归.md",
     "2-深度学习基础/2.1-分类与回归/2.1.3-K近邻回归",
-    "2-深度学习基础/2.1-分类与回归/2.1.2-逻辑回归.md",
-    "2-深度学习基础/2.1-分类与回归/2.1.3-Softmax回归.md",
-    "2-深度学习基础/2.1-分类与回归/2.1.2逻辑回归.md",
-    "2-深度学习基础/2.1-分类与回归/2.1.1-线性回归.md",
-    "2-深度学习基础/2.1-分类与回归/逻辑回归.md",
-    "2-深度学习基础/2.4-多层感知机/感知机.md",
-    "2-深度学习基础/2.4-多层感知机/前馈神经网络.md",
     "2-深度学习基础/2.4-多层感知机",
-    "2-深度学习基础/2.3-激活函数/Tanh.md",
-    "2-深度学习基础/2.3-激活函数/Sigmod.md",
     "2-深度学习基础/2.3-激活函数",
     "2-深度学习基础/2.2-损失函数",
     "2-深度学习基础/2.1-分类与回归",
     "2-深度学习基础/激活函数",
-    "2-深度学习基础/损失函数",
-    "2-深度学习基础/分类与回归",
-    "2-深度学习基础",
-    "images/Calculus/PartialDerivative.png",
-    "scripts/PartialDerivative.py",
-    "images/Calculus/Differential.png",
-    "images/Calculus/Derivative.png",
-    "images/Activation/TanhDiagram.png",
-    "images/Activation/GeluDiagram.png",
-    "images/Activation/SigmoidDiagram.png",
-    "images/Activation/LeakyReLUDiagram.png",
+    "1-数学基础/1.1-微积分/images/PartialDerivative.png",
+    "1-数学基础/1.1-微积分/images/Differential.png",
+    "2-深度学习基础/2.3-激活函数/images/SigmoidDiagram.png",
+    "2-深度学习基础/2.3-激活函数/images/LeakyReLUDiagram.png",
     "images/Activation/ReLU.png",
-    "images/Activation/SigmodBackPropagation.png",
-    "images/Activation/SigmodBackPropagation.drawio.svg",
+    "2-深度学习基础/2.3-激活函数/images/SigmodBackPropagation.png",
     "未命名.canvas"
   ]
 }
