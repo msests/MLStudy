@@ -1,15 +1,19 @@
+## 简介
+
+GRU（门控循环单元）是一种简化版的LSTM，旨在解决序列数据训练中的长期依赖问题。它结合了输入门和遗忘门为一个更新门，同时通过重置门决定如何结合新的输入与先前的记忆。相比LSTM，GRU具有更简单的结构，减少了参数数量，从而加快了训练过程，同时在很多任务上保持了与LSTM相当的表现。由于其高效性和简洁性，GRU在自然语言处理、语音识别等领域应用广泛。
+
 ## 原理
 
-GRU是循环神经网络（RNN）的一种变体，旨在解决长序列训练过程中的梯度消失问题。它通过引入门控机制来控制信息的流动。GRU的主要组成部分包括更新门和重置门：
+GRU通过引入门控机制来控制信息的流动。GRU的主要组成部分包括更新门和重置门：
 
 - **更新门(z_t)**：决定新状态中有多少信息需要保留或丢弃。
 - **重置门(r_t)**：控制如何结合新的输入与之前的状态。
 
-![](../images/GRU/Overview.drawio.svg)
+![](GruOverview.drawio.svg)
 
-## 门控详解
+### 门控详解
 
-### 重置门（Reset Gate）
+#### 重置门（Reset Gate）
 
 **公式**：
 $$r_t = \sigma(W_r \cdot [h_{t-1}, x_t] + b_r)$$
@@ -22,9 +26,9 @@ $$r_t = \sigma(W_r \cdot [h_{t-1}, x_t] + b_r)$$
 - 控制历史信息 $h_{t-1}$ 对候选隐藏状态的影响程度。
 - 当 $r_t \approx 0$ 时，丢弃历史信息，仅依赖当前输入 $x_t$。
 
-![](../images/GRU/ResetGate.drawio.svg)
+![](GruResetGate.drawio.svg)
 
-### 更新门（Update Gate）
+#### 更新门（Update Gate）
 
 **公式**：
 $$z_t = \sigma(W_z \cdot [h_{t-1}, x_t] + b_z)$$
@@ -37,9 +41,9 @@ $$z_t = \sigma(W_z \cdot [h_{t-1}, x_t] + b_z)$$
 - 平衡历史状态 $h_{t-1}$ 和候选状态 $\tilde{h}_t$ 的贡献比例。
 - 当 $z_t \approx 1$ 时，保留更多历史信息；反之则更新为新的候选状态。
 
-![](../images/GRU/UpdateGate.drawio.svg)
+![](GruUpdateGate.drawio.svg)
 
-### 候选隐藏状态（Candidate Hidden State）
+#### 候选隐藏状态（Candidate Hidden State）
 
 **公式**：
 $$\tilde{h}_t = \tanh(W \cdot [r_t \odot h_{t-1}, x_t] + b)$$
@@ -52,9 +56,9 @@ $$\tilde{h}_t = \tanh(W \cdot [r_t \odot h_{t-1}, x_t] + b)$$
 - 生成一个包含当前输入和部分历史信息的新候选状态。
 - $\tanh$ 确保状态值在 $[-1,1]$ 之间稳定。
 
-![](../images/GRU/CandidateState.drawio.svg)
+![](GruCandidateState.drawio.svg)
 
-### 最终隐藏状态（Hidden State Update）
+#### 最终隐藏状态（Hidden State Update）
 
 **公式**：
 $$h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t$$
@@ -66,7 +70,7 @@ $$h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t$$
 - 动态决定保留多少历史信息（长期依赖）和引入多少新信息（短期依赖）。
 - 允许模型跳过无关时间步，缓解梯度消失问题。
 
-![](../images/GRU/StateUpdate.drawio.svg)
+![](GruStateUpdate.drawio.svg)
 ### 候选隐藏状态的好处
 
 #### ​**非线性特征融合**
